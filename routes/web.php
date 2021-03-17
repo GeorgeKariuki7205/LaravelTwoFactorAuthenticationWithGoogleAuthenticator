@@ -13,11 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/login', function () {
-//     return view('welcome');
-// })->name('login');
-// Route::get('/login','App\Http\Controllers\LoginSecurityController@show2faForm')->name();
-
+Route::get('/', function () {
+    return view('welcome');
+});
 Route::group(['prefix'=>'2fa'], function(){
     Route::get('/','App\Http\Controllers\LoginSecurityController@show2faForm');
     Route::post('/generateSecret','App\Http\Controllers\LoginSecurityController@generate2faSecret')->name('generate2faSecret');
